@@ -50,9 +50,10 @@ app.controller('mainCtrl', ['$scope', 'Configuracion','Mensajes', 'Notificacione
 	// ================================================
 	//   Funciones Globales del Scope
 	// ================================================
-	$scope.activar = function( menu, submenu, titulo, subtitulo ){
+	$scope.activar = function( menu, submenu, titulo, subtitulo ){ //Esta función lo que ahce es que le va dando el valor de "active" a la clase de cada uno de los elementos a los que se les está haciendo referencia. Para eso, se utiliza ng-class en todas las etiquetas que queremos personalizar con el "active".
+//16) Cuando se llama desde cualquier controlador a esta función de activación, hay que pasarle siempre los cuatro atributos que se le han diseñado. Así se puede establecer, no solo la parte del menú que está activa, sino también el nombre del título y del subtítulo que aparecen en la parte de arriba de la web.
 
-		$scope.titulo    = titulo;
+		$scope.titulo    = titulo; //Es recomendable que estas variables del scope se creen fuera de la función.
 		$scope.subtitulo = subtitulo;
 
 		$scope.mDashboard = "";
