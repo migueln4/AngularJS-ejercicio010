@@ -109,7 +109,7 @@ app.filter( 'quitarletra', function(){
 
 .filter( 'mensajecorto', function(){ //Cada nuevo filtro que se vaya creando debe añadirse así, no hace falta volver a poner lo de app. porque son diferentes filtros que se van sumando al objeto en sí.
 
-	return function(mensaje){
+	return function(mensaje){ //Este filtro se encarga de añadir puntos suspensivos a una cadena que se corresponda con un mensaje. Aunque lo recomendable sería que, desde el servidor, se enviara un mensaje corto con unos 20 caracteres, aparte del cuerpo del mensaje completo. Eso sería como incluirlo como un campo más del json que se maneja en la parte de AngularJS.
 		if( mensaje ){
 			if( mensaje.length > 35)
 				return mensaje.substr(0,35) + "...";
