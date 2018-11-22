@@ -43,6 +43,9 @@ unset( $_SESSION['user'] );
       <p class="login-box-msg">Ingrese Su Usuario</p>
 
       <form name="forma" ng-submit=" ingresar( datos ) ">
+<!--
+3) Solo con ponerle un nombre al formulario, ya nos podemos referir en forma de variable al objeto que genera dentro (con sus atributos y demás).
+-->
 
         <div class="form-group has-feedback">
 
@@ -52,6 +55,10 @@ unset( $_SESSION['user'] );
           name="usuario"
           required="required"
           ng-model="datos.usuario">
+<!--
+5) A esta entrada se le ponen diferentes condiciones -reglas de validación- y se decide que se debe guardar como datos.usuario (eso viene fijado en el ng-model, ya que así crea la variable en el controlador para que podamos utilizarla).
+6) El name se usa para poder utilizarlo de forma interna.
+-->
 
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
@@ -71,7 +78,10 @@ unset( $_SESSION['user'] );
           <div class="col-xs-12">
             <button type="submit" 
             class="btn btn-success btn-block btn-flat"
-            ng-disabled="forma.$invalid || cargando">Ingresar</button>
+            ng-disabled="forma.$invalid || cargando">Entrar</button>
+<!--
+7) El ng-disabled es parecido al ng-hide y al ng-show. Deja el campo habilidado o deshabilitado en función de un valor true o false que se reciba en la expresión que se está utilizando. En este caso, el botón se quedará invalidado mientras el formulario no sea válido o si está la variable cargando a true.
+-->
           </div><!-- /.col -->
         </div>
 
@@ -80,11 +90,14 @@ unset( $_SESSION['user'] );
           <div class="col-md-12">
             <br>
             <div class="alert alert-danger">
-              <strong>Verificar!</strong>
+              <strong>¡Verificar!</strong>
               {{ mensaje }}
             </div>
           </div>
         </div>
+<!--
+8) Aquí lo que se hace es mostrar, o no, un mensaje al usuario. Ese mensaje aparece siempre que se haya decidido que el formulario esté mal validado (eso se maneja con la directiva ng-show). La variable se está controlando desde el controlador que hay en app.js.
+-->
 
 
 
