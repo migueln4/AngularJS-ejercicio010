@@ -1,10 +1,10 @@
 var app = angular.module('facturacionApp.factura',[]);
-
+//Aquí está toda la lógica para generar la factura.
 
 app.factory('Factura', ['$http', '$q', function($http, $q){
 
 	var self = {
-		
+//De aquí hacia abajo, toda la inicialización de la variable.
 		numero_factura: undefined,
 		fecha_solicitado: new Date(),
 		estado: 'E',
@@ -15,9 +15,9 @@ app.factory('Factura', ['$http', '$q', function($http, $q){
 		comentario: undefined,
 		cliente_id: undefined,
 		comentario: undefined,
-		detalle: [],
+		detalle: [],//Aquí es donde se van metiendo los artículos que se añaden en el frontal
 		
-		nueva_factura: function(){
+		nueva_factura: function(){//Resetea todos los datos cada vez que se genera una nueva factura
 
 			self.numero_factura = undefined;
 			self.fecha_solicitado = new Date();

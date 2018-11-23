@@ -94,6 +94,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
           <a href="" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+<!---
+12) Es muy importante que se eliminen las estructuras de enlaces como href="#" y se deje vacío el entrecomillado. Si no, puede que AngularJS se haga lío a la hora de cargar ciertos elementos de la página y no redireccione correctamente. Esto hay que hacerlo no solo aquí sino en cada uno de los elementos que se incluyan en este index o en otros lados de la web.
+--->
             <span class="sr-only">Toggle navigation</span>
           </a>
           <!-- Navbar Right Menu -->
@@ -103,6 +106,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <!-- Messages: style can be found in dropdown.less-->
               <li class="dropdown messages-menu"
                   ng-include="'template/mensajes.html'">
+<!---
+1) Todas las cosas que se están separando de la parte del index se van guardando en la carpeta "template" y se añaden aquí con un ng-include de AngularJS. 
+--->
               </li>
               <!-- /.messages-menu -->
 
@@ -140,12 +146,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Main content -->
         <section class="content" ng-view>
           
-          <!-- 
-          <ol class="breadcrumb">
-            <li><a href=""><i class="fa fa-dashboard"></i> Level</a></li>
-            <li class="active">Here</li>
-          </ol> 
-          -->
+<!---
+2) Todo lo que va dentro del ng-view es lo que se convierte realmente en el área de trabajo. Por eso, se queda vacío en este archivo. En el Dashboard, además, es donde se incluyen las migas de pan (está en su propia carpeta).
+-->
 
           <!-- Your Page Content Here -->
 

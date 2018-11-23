@@ -19,9 +19,9 @@ app.factory('Clientes', ['$http', '$q', function($http, $q){
 
 			var d = $q.defer();
 
-			self.cargando = true;
+			self.cargando = true;//Esto solo está para implementar un loading.
 
-			$http.post('php/clientes/get.cliente.buscar.php?p=' + parametro )
+			$http.post('php/clientes/get.cliente.buscar.php?p=' + parametro )//Simplemente, se ejecuta el servicio y se envía el parámetro.
 				.success(function( respuesta ){
 
 					console.log( respuesta );

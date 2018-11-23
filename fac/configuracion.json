@@ -1,5 +1,6 @@
-{
+// 5) Este archivo es el que contiene toda la información sobre la configuración de la web que se está haciendo. Se coloca expresamente para que luego chupe de aquí información. La idea es que este archivo se lea y aparezca la información donde se debería.
 
+{
 	"version":"1.0.0",
 	"aplicativo": "facturación",
 	"iniciales":"BETA",

@@ -15,18 +15,18 @@ app.controller('facturaCtrl', ['$scope', 'Clientes','Factura', function($scope, 
 	$scope.hoy = new Date();
 
 	
-	$scope.buscarCliente = function(buscar){
+	$scope.buscarCliente = function(buscar){//Esto recibe un término para buscar
 
-		$scope.clientes = {};
+		$scope.clientes = {};//Aquí están todos los clientes gaurdados
 
-		Clientes.buscar(buscar).then(function(){
+		Clientes.buscar(buscar).then(function(){//Llamo al servicio de los clientes.
+//Lo que se utiliza para generar la factura es el cliente. Se genera a partir de él.
 			
-			if( isNaN( buscar ) ){
-
-				$("#modal_buscar_cliente").modal();
+			if( isNaN( buscar ) ){//Si lo que se le ha pasado es un número
+				$("#modal_buscar_cliente").modal();//Esto hace referencia a un id de HTML.
 				$scope.clientes = Clientes.clientes;
 
-			}else{
+			}else{//Aquí entra porque se detecta un número y se busca directamente por id
 				$scope.cliente = Clientes.clientes[0];
 			}
 		});
