@@ -1,6 +1,5 @@
 var app = angular.module( 'loginApp',['login.loginService']);
 
-
 app.controller('mainCtrl', ['$scope', 'LoginService', function( $scope, LoginService ){
 	
 

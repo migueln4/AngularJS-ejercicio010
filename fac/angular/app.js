@@ -95,7 +95,7 @@ app.config([ '$routeProvider', function($routeProvider){
 			controller: 'dashboardCtrl'
 		})
 		.when('/facturas',{
-			templateUrl: 'facturas/facturas.html',
+			templateUrl: 'facturas/facturas.html', //No tiene controlador adrede.
 			// controller: 'clientesCtrl'
 		})
 		.when('/facturanueva',{
