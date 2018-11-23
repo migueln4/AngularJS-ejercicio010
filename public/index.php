@@ -177,8 +177,6 @@
             </div>
           </div>
         </div>
->>>>>>> parent of 7b79887... Comentado el login
-
 
 
         </form>
