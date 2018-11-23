@@ -18,7 +18,7 @@ $respuesta = array(
 // ================================================
 //   Encriptar la contraseña maestra (UNICA VEZ)
 // ================================================
- encriptar_usuario();
+// encriptar_usuario();
 
 
 
@@ -32,13 +32,13 @@ if(  isset( $request['usuario'] ) && isset( $request['contrasena'] ) ){ // ACTUA
 
 
 	// Verificar que el usuario exista
-	$sql = "SELECT count(*) as existe FROM users where usuario = '$user'";
+	$sql = "SELECT count(*) as existe FROM usuarios where codigo = '$user'";
 	$existe = Database::get_valor_query( $sql, 'existe' );
 
 
 	if( $existe == 1 ){
 
-		$sql = "SELECT contrasena FROM users where usuario = '$user'";
+		$sql = "SELECT contrasena FROM usuarios where codigo = '$user'";
 		$data_pass = Database::get_valor_query( $sql, 'contrasena' );
 
 
@@ -57,7 +57,7 @@ if(  isset( $request['usuario'] ) && isset( $request['contrasena'] ) ){ // ACTUA
 			$_SESSION['user'] = $user;
 
 			// actualizar ultimo acceso
-			$sql = "UPDATE users set last_login = NOW() where usuario = '$user'";
+			$sql = "UPDATE usuarios set ultimoacceso = NOW() where codigo = '$user'";
 			Database::ejecutar_idu($sql);
 		}
 
@@ -78,16 +78,16 @@ echo json_encode( $respuesta );
 // ================================================
 //   Funcion para Encriptar
 // ================================================
-/* function encriptar_usuario(){
+// function encriptar_usuario(){
 
- 	$usuario_id = '1';
- 	$contrasena = '123456';
- 	$contrasena_crypt = Database::crypt( $contrasena );
+// 	$usuario_id = '1';
+// 	$contrasena = '123456';
+// 	$contrasena_crypt = Database::crypt( $contrasena );
 
-	$sql = "UPDATE users set contrasena = '$contrasena_crypt' where id = '$usuario_id'";
- 	Database::ejecutar_idu($sql);
+// 	$sql = "UPDATE usuarios set contrasena = '$contrasena_crypt' where id = '$usuario_id'";
+// 	Database::ejecutar_idu($sql);
 
-}
-*/
+// }
+
 
 ?>

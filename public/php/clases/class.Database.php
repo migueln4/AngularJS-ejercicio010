@@ -15,7 +15,7 @@ class Database{
 	private $_host = "localhost";
 	private $_user = "facturacion_user";
 	private $_pass = "123456";
-	private $_db   = "cdc_personal";
+	private $_db   = "facturacion_db";
 
 
 	// Almacenar una unica instancia

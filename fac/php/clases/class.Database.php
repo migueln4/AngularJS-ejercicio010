@@ -239,11 +239,10 @@ class Database{
 		if (!$resultado = $mysqli->query($sql) ) {
 		    return "class.Database.class: error ". $mysqli->error;
 		}else{
-			return $resultado;
+			return $mysqli->insert_id;
 		}
 
 		
-
         return $resultado;
 	}
 
@@ -304,6 +303,10 @@ class Database{
 			$pag_anterior = $pagina;
 		}
 
+		if( $desde <=0 ){
+			$desde = 0;
+		}
+
 
 		$sql = "SELECT * from $tabla limit $desde, $por_pagina";
 
@@ -333,7 +336,50 @@ class Database{
 
 	}
 
+
+	// ================================================
+	//   Esta funcion recibe un parametro y retorna
+	//   todo lo que coincida en la tabla con ese parametro
+	// ================================================
+	Public static function get_por_nombre($tabla, $campo, $parametro ){
+
+		$sql = "SELECT * FROM $tabla where ". Database::where_palabras_query($campo, $parametro);;
+
+
+		$data = Database::get_arreglo($sql);
+
+		$respuesta = array(
+				'err' => false,
+				$tabla => $data
+			);
+
+		// return $respuesta;
+		return $respuesta;
+
+	}
+
+	Public static function where_palabras_query( $campo, $parametro ){
+
+		$palabras = explode(" ", $parametro );
+		$retorno  = "";
+
+		for ($i=0; $i < count($palabras) ; $i++) { 
+			
+			if( $i == 0){
+				$retorno = "$campo like '%$palabras[0]%'";
+			}else{
+				$retorno .= " and $campo like '%$palabras[$i]%'";
+			}
+
+		}
+
+		return $retorno;
+
+	}
+
 }
+
+
 
 
 ?>

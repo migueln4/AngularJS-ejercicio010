@@ -33,7 +33,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect.
     -->
-    <link rel="stylesheet" href="dist/css/skins/skin-green.min.css">
+    <link rel="stylesheet" href="dist/css/skins/skin-purple.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -57,6 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="angular/app.js"></script>
     <script src="angular/controladores/dashboardCtrl.js"></script>
     <script src="angular/controladores/clientesCtrl.js"></script>
+    <script src="angular/controladores/facturasCtrl.js"></script>
 
 
     <!-- servicios -->
@@ -64,12 +65,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="angular/servicios/mensajes_service.js"></script>
     <script src="angular/servicios/notificaciones_service.js"></script>
     <script src="angular/servicios/clientes_service.js"></script>
+    <script src="angular/servicios/factura_service.js"></script>
+
+    
+    <!-- Plugins -->
+    <script src="plugins/sweetalert/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="plugins/sweetalert/sweetalert.css">
 
   </head>
  
 
 
-  <body class="hold-transition skin-green sidebar-mini">
+  <body class="hold-transition skin-purple sidebar-mini">
     <div class="wrapper">
 
       <!-- Main Header -->
@@ -77,7 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Logo -->
         <a href="index2.html" class="logo">
-          <!-- mini logo for sidebar mini 50x50 pixels -->  
+          <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>{{ config.iniciales[0] }}</b>{{ config.iniciales | quitarletra }}</span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b> {{ config.aplicativo }} </b>{{ config.iniciales }}</span>
@@ -87,9 +94,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
           <a href="" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-<!---
-12) Es muy importante que se eliminen las estructuras de enlaces como href="#" y se deje vacío el entrecomillado. Si no, puede que AngularJS se haga lío a la hora de cargar ciertos elementos de la página y no redireccione correctamente. Esto hay que hacerlo no solo aquí sino en cada uno de los elementos que se incluyan en este index o en otros lados de la web.
---->
             <span class="sr-only">Toggle navigation</span>
           </a>
           <!-- Navbar Right Menu -->
@@ -99,9 +103,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <!-- Messages: style can be found in dropdown.less-->
               <li class="dropdown messages-menu"
                   ng-include="'template/mensajes.html'">
-<!---
-1) Todas las cosas que se están separando de la parte del index se van guardando en la carpeta "template" y se añaden aquí con un ng-include de AngularJS. 
---->
               </li>
               <!-- /.messages-menu -->
 
@@ -138,9 +139,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Main content -->
         <section class="content" ng-view>
-<!---
-2) Todo lo que va dentro del ng-view es lo que se convierte realmente en el área de trabajo. Por eso, se queda vacío en este archivo. En el Dashboard, además, es donde se incluyen las migas de pan (está en su propia carpeta).
--->
+          
+          <!-- 
+          <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i> Level</a></li>
+            <li class="active">Here</li>
+          </ol> 
+          -->
 
           <!-- Your Page Content Here -->
 
@@ -155,8 +160,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <!-- Default to the left -->
         <strong>Copyright &copy; {{ config.anio }} 
-         {{config.empresa}}.
-        </strong> Todos los derechos están reservados.
+            <a href="{{ config.web }}" target="blank">Compañía</a>.
+        </strong> Derechos reservados.
       </footer>
 
     

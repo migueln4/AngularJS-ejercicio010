@@ -5,9 +5,6 @@
 </a>
 <ul class="dropdown-menu">
   <li class="header">Tienes {{ notificaciones.length }} notificacion(s)</li>
-<!---
-15) Se podría usar un ng-show o un ng-hide aquí para que no muestre este aviso del número de notificaciones si es igual a cero: ng-hide="notificaciones.lenght===0".
---->
   <li>
     <!-- Inner Menu: contains the notifications -->
     <ul class="menu">
@@ -16,9 +13,6 @@
       <li ng-repeat="notificacion in notificaciones">
         <a href="">
           <i class="fa {{ notificacion.icono }} text-info"></i> 
-<!---
-14) Aquí es donde se incluye la clase del icono que se ha especificado en el servicio notificaciones_service.js. Por supuesto, se puede combinar con más clases.
--->
           {{ notificacion.notificacion }}
         </a>
       </li><!-- end notification -->

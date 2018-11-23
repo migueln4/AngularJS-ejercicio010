@@ -15,6 +15,27 @@ app.factory('Clientes', ['$http', '$q', function($http, $q){
 		'total_paginas' : 1,
 		'paginas'	    : [],
 
+		buscar: function( parametro ){
+
+			var d = $q.defer();
+
+			self.cargando = true;
+
+			$http.post('php/clientes/get.cliente.buscar.php?p=' + parametro )
+				.success(function( respuesta ){
+
+					console.log( respuesta );
+					self.cargando = false;
+
+					self.clientes = respuesta.clientes;
+					d.resolve();
+
+				});
+
+			return d.promise;
+
+		},
+
 		guardar: function( cliente ){
 
 			var d = $q.defer();

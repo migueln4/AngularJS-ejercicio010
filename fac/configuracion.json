@@ -1,11 +1,14 @@
-// 5) Este archivo es el que contiene toda la información sobre la configuración de la web que se está haciendo. Se coloca expresamente para que luego chupe de aquí información. La idea es que este archivo se lea y aparezca la información donde se debería.
-
 {
 
 	"version":"1.0.0",
-	"aplicativo": "Recursos Humanos",
-	"iniciales":"RH",
-	"anio": 2017,
-	"empresa":"Grupo Noroeste de Telecomunicaciones SA de CV"
-
+	"aplicativo": "facturación",
+	"iniciales":"BETA",
+	"autor":"Fernando Herrera",
+	"anio": 2016,
+	"web": "http://www.tucancode.com",
+	"empresa":"Tucancode",
+	"correo":"fernando.herrera85@gmail.com",
+	"telefono":"(504) 2233-3212",
+	"direccion": "Avenida XYZ, 300mts norte de la calle 123",
+	"ISV": 0.12
 }
